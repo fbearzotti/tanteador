@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "tanteador", "tanteador\tanteador.jsproj", "{1959DA15-25DE-4239-9679-8F41FC8C6147}"
 EndProject
-Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "WEBSql", "..\WEBSql\WEBSql\WEBSql.jsproj", "{A58BFDFD-FAF8-45CE-A3A2-86E77915C281}"
+Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "WEBSql", "WEBSql\WEBSql\WEBSql.jsproj", "{A58BFDFD-FAF8-45CE-A3A2-86E77915C281}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
