@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+      Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+      For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+  -->
+  <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>WEBSql</title>
+</head>
+<body>
+  <h1>My first App</h1>
+  <p>Open Database</p>
+  <div id="qrpopup">
+    //The hidden div tag for implementing the popup
+    <hr />
+    <input type="text" id="editNameBox"><br>
+    <input type="text" id="editNumberBox"><br>
+    <button onclick="goDelete()">Delete</button>
+    <button onclick="goEdit()">Edit</button>
+    <button onclick="document.getElementById('qrpopup').style.display='none';">Discard</button>
+  </div>
+
+  <div>
+    Name<input type="text" value="Name" id="txtName">
+    Number <input type="text" value="123" id="txtNumber">
+    <hr />
+  </div>
+  <div id="tblDiv"></div>
+  <div style="text-align: center">
+    <button onclick="goInsert()">Insert</button>
+    <button onclick="goSearch()">Search</button>
+    <button onclick="successCB()">Show All</button>
+  </div>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="scripts/sqlite.js"></script>
+  <!--<script type="text/javascript" src="scripts/platformOverrides.js"></script>-->
+  <!--<script type="text/javascript" src="scripts/index.js"></script>-->
+</body>
+</html>
