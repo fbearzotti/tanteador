@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; script-src 'self'  https://code.jquery.com; style-src 'self' https://code.jquery.com 'unsafe-inline'; media-src *">
+  <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; script-src 'self'  https://code.jquery.com; style-src 'self' https://code.jquery.com 'unsafe-inline'; media-src *; img-src *">-->
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -9,58 +9,79 @@
   <link href="css/jquery.mobile.icons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <title>Tanteador</title>
 </head>
 <body>
 
   <div data-role="page" id="principal">
-    <div data-role="header">
+    <div data-role="header" style="overflow:hidden">
+      <a href="#principal" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
       <h1>Tanteador</h1>
       <div data-role="navbar">
         <ul>
-          <li><a href="#partido">Partido</a></li>
-          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#partido"><h4>Partidos</h4></a></li>
+          <li><a href="#eventos"><h4>Eventos</h4></a></li>
         </ul>
       </div>
     </div>
     <div role="main" class="ui-content" style="text-align:center">
       <img src="images/CAR_CURVES.jpg" style="text-align:center" />
     </div>
-    <div data-role="footer" style="text-align:center">FLB Sistemas</div>
+    <div data-role="footer" style="text-align:center"><h4>FLB Sistemas</h4></div>
   </div>
 
   <div data-role="page" id="partido">
-    <div data-role="header">
+    <div data-role="header" style="overflow:hidden">
+      <a href="#principal" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
       <h1>Tanteador</h1>
       <div data-role="navbar">
         <ul>
-          <li><a href="#partido">Partido</a></li> 
-          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#partido" class="ui-btn-active ui-state-persist"><h4>Partidos</h4></a></li>
+          <li><a href="#eventos"><h4>Eventos</h4></a></li>
         </ul>
       </div>
     </div>
-    <div role="main" class="ui-content">Partido</div>
-    <div data-role="footer" style="text-align:center">FLB Sistemas</div>
+    <div role="main" class="ui-content">
+      <div id="qrpopup">
+        Local:<input type="text" data-clear-btn="true" name="local" id="local" placeholder="Equipo local.." />
+        Visitante:<input type="text" data-clear-btn="true" name="visitante" id="visitante" placeholder="Equipo visitante.." />
+        Fecha<input type="date" data-clear-btn="true" name="fecha" id="fecha" placeholder="Fecha partido.." />
+        Lugar<input type="text" data-clear-btn="true" name="lugar" id="lugar" placeholder="Lugar del partido.." value="35" />
+        Minutos<input type="text" data-clear-btn="true" name="tiempo" id="tiempo" placeholder="Minutos partido.." value="35" />
+        Resultado<input type="text" data-clear-btn="true" name="resultado" id="resultado" placeholder="Resultado partido.." />
+        <div data-role="controlgroup" data-type="horizontal" style="text-align:center">
+          <button onclick="goInsertPartido();">Agregar</button>
+          <button onclick="document.getElementById('qrpopup').style.display='none';document.getElementById('listapartidos').style.display = 'block';">Cancelar</button>
+        </div>
+      </div>
+      <div id="listapartidos">
+        <button onclick="abroNuevo();">Nuevo Partido</button>
+        <div id="tblDiv"></div>
+      </div>
+    </div>
+    <div data-role="footer" style="text-align:center"><h4>FLB Sistemas</h4></div>
   </div>
 
   <div data-role="page" id="eventos">
-    <div data-role="header">
+    <div data-role="header" style="overflow:hidden">
+      <a href="#principal" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
       <h1>Tanteador</h1>
       <div data-role="navbar">
         <ul>
-          <li><a href="#partido">Partido</a></li>
-          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#partido"><h4>Partidos</h4></a></li>
+          <li><a href="#eventos" class="ui-btn-active ui-state-persist"><h4>Eventos</h4></a></li>
         </ul>
       </div>
     </div>
     <div role="main" class="ui-content">Eventos</div>
-    <div data-role="footer" style="text-align:center">FLB Sistemas</div>
+    <div data-role="footer" style="text-align:center"><h4>FLB Sistemas</h4></div>
   </div>
 
 
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="scripts/platformOverrides.js"></script>
   <script type="text/javascript" src="scripts/index.js"></script>
+  <script type="text/javascript" src="scripts/sqlite.js"></script>
 </body>
 </html>
