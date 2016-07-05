@@ -9,7 +9,8 @@ function creoDB(tx) {
   //tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id INTEGER PRIMARY KEY AUTOINCREMENT, name,number)');
 
   //Tablas de TANTEADOR
-  tx.executeSql('CREATE TABLE IF NOT EXISTS PARTIDOS (id INTEGER PRIMARY KEY AUTOINCREMENT,local,visitante,fecha,lugar,resultado,tiempo)');
+  //tx.executeSql('DROP TABLE IF EXISTS PARTIDOS');
+  tx.executeSql('CREATE TABLE IF NOT EXISTS PARTIDOS (id INTEGER PRIMARY KEY AUTOINCREMENT,local,plocal,visitante,pvisitante,fecha,lugar,tiempo)');
   tx.executeSql('CREATE TABLE IF NOT EXISTS EVENTOSPARTIDO (id INTEGER PRIMARY KEY AUTOINCREMENT,idpartido,evento,tiempo)');
   tx.executeSql('CREATE TABLE IF NOT EXISTS EVENTOSTIPO (id INTEGER PRIMARY KEY AUTOINCREMENT,deno,puntos)');
 }
@@ -33,7 +34,7 @@ function querySuccess(tx, results) {
   for (var i = 0; i < len; i++) {
     var tmpArgs = results.rows.item(i).id + ",'" + results.rows.item(i).name
             + "','" + results.rows.item(i).number + "'";
-    tblText += "<tr><th>" + results.rows.item(i).id + "</th><td>" + results.rows.item(i).local + "</td><td>" + results.rows.item(i).visitante + "</td><td>" + results.rows.item(i).resultado + "</td></tr>";
+    tblText += "<tr><th>" + results.rows.item(i).id + "</th><td>" + results.rows.item(i).local + "</td><td>" + results.rows.item(i).visitante + "</td><td>" + results.rows.item(i).plocal + "-" + results.rows.item(i).pvisitante + "</td></tr>";
   }
   tblText += "<tbody></table>";
   document.getElementById("tblDiv").innerHTML = tblText;
@@ -41,7 +42,7 @@ function querySuccess(tx, results) {
 
 //Delete query
 function deleteRow(tx) {
-  tx.executeSql('DELETE FROM DEMO WHERE id = ' + currentRow, [], queryDB, errorCB);
+  tx.executeSql('DELETE FROM PARTIDOS WHERE id = ' + currentRow, [], queryDB, errorCB);
 }
 
 // Transaction error callback
@@ -68,14 +69,13 @@ function onDeviceReady() {
 //Insert query
 //
 function insertPartidoDB(tx) {
-  //tx.executeSql('INSERT INTO DEMO (name,number) VALUES ("' + document.getElementById("txtName").value
-  //        + '","' + document.getElementById("txtNumber").value + '")');
-  tx.executeSql('INSERT INTO PARTIDOS (local,visitante,fecha,lugar,resultado,tiempo) VALUES ("'
+  tx.executeSql('INSERT INTO PARTIDOS (local,plocal,visitante,pvisitante,fecha,lugar,tiempo) VALUES ("'
           + document.getElementById("local").value
+           + '","' + document.getElementById("plocal").value
           + '","' + document.getElementById("visitante").value
+           + '","' + document.getElementById("pvisitante").value
           + '","' + document.getElementById("fecha").value
           + '","' + document.getElementById("lugar").value
-          + '","' + document.getElementById("resultado").value
           + '","' + document.getElementById("tiempo").value
           + '")');
   document.getElementById('qrpopup').style.display = 'none';

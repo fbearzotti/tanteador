@@ -15,7 +15,8 @@
 <body>
 
   <div data-role="page" id="principal">
-    <div data-role="header" style="overflow:hidden">
+
+    <div data-role="header" data-position="fixed" style="overflow:hidden">
       <a href="#principal" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
       <h1>Tanteador</h1>
       <div data-role="navbar">
@@ -28,11 +29,13 @@
     <div role="main" class="ui-content" style="text-align:center">
       <img src="images/CAR_CURVES.jpg" style="text-align:center" />
     </div>
-    <div data-role="footer" style="text-align:center"><h4>FLB Sistemas</h4></div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="text-align:center">
+      <p>&copy; 2016 FLB Sistemas</p>
+    </div>
   </div>
 
   <div data-role="page" id="partido">
-    <div data-role="header" style="overflow:hidden">
+    <div data-role="header" data-position="fixed" style="overflow:hidden">
       <a href="#principal" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
       <h1>Tanteador</h1>
       <div data-role="navbar">
@@ -44,12 +47,36 @@
     </div>
     <div role="main" class="ui-content">
       <div id="qrpopup">
-        Local:<input type="text" data-clear-btn="true" name="local" id="local" placeholder="Equipo local.." />
-        Visitante:<input type="text" data-clear-btn="true" name="visitante" id="visitante" placeholder="Equipo visitante.." />
-        Fecha<input type="date" data-clear-btn="true" name="fecha" id="fecha" placeholder="Fecha partido.." />
-        Lugar<input type="text" data-clear-btn="true" name="lugar" id="lugar" placeholder="Lugar del partido.." value="35" />
-        Minutos<input type="text" data-clear-btn="true" name="tiempo" id="tiempo" placeholder="Minutos partido.." value="35" />
-        Resultado<input type="text" data-clear-btn="true" name="resultado" id="resultado" placeholder="Resultado partido.." />
+        <fieldset class="ui-grid-a">
+          <label for="local" style="float:left">Local:</label>
+          <div class="ui-block-a">
+            <input type="text" data-clear-btn="true" name="local" id="local" placeholder="Equipo local.." />
+          </div>
+          <div class="ui-block-b">
+            <input type="number" data-clear-btn="true" name="plocal" id="plocal" placeholder="Puntos.." />
+          </div>
+        </fieldset>
+        <fieldset class="ui-grid-a">
+          <label for="local" style="float:left">Visitante:</label>
+          <div class="ui-block-a">
+            <input type="text" data-clear-btn="true" name="visitante" id="visitante" placeholder="Equipo visitante.." />
+          </div>
+          <div class="ui-block-b">
+            <input type="number" data-clear-btn="true" name="pvisitante" id="pvisitante" placeholder="Puntos.." />
+          </div>
+        </fieldset>
+        <div class="ui-field-contain">
+          <label for="fecha">Fecha:</label>
+          <input type="date" data-clear-btn="true" name="fecha" id="fecha" placeholder="Fecha partido.." />
+        </div>
+        <div class="ui-field-contain">
+          <label for="lugar">Lugar:</label>
+          <input type="text" data-clear-btn="true" name="lugar" id="lugar" placeholder="Lugar del partido.." value="" />
+        </div>
+        <div class="ui-field-contain">
+          <label for="tiempo">Minutos:</label>
+          <input type="number" data-clear-btn="true" name="tiempo" id="tiempo" placeholder="Minutos partido.." value="35" />
+        </div>
         <div data-role="controlgroup" data-type="horizontal" style="text-align:center">
           <button onclick="goInsertPartido();">Agregar</button>
           <button onclick="document.getElementById('qrpopup').style.display='none';document.getElementById('listapartidos').style.display = 'block';">Cancelar</button>
@@ -60,11 +87,13 @@
         <div id="tblDiv"></div>
       </div>
     </div>
-    <div data-role="footer" style="text-align:center"><h4>FLB Sistemas</h4></div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="text-align:center">
+      <p>&copy; 2016 FLB Sistemas</p>
+    </div>
   </div>
 
   <div data-role="page" id="eventos">
-    <div data-role="header" style="overflow:hidden">
+    <div data-role="header" data-position="fixed" style="overflow:hidden">
       <a href="#principal" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
       <h1>Tanteador</h1>
       <div data-role="navbar">
@@ -75,7 +104,9 @@
       </div>
     </div>
     <div role="main" class="ui-content">Eventos</div>
-    <div data-role="footer" style="text-align:center"><h4>FLB Sistemas</h4></div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer" style="text-align:center">
+      <p>&copy; 2016 FLB Sistemas</p>
+    </div>
   </div>
 
 
